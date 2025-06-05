@@ -19,13 +19,13 @@ In our baseline approach, we extract molecular fingerprints from SMILES represen
 Code for the testing of all baseline algorithms can be found in `baseline.ipynb` notebook.
 
 ## Baseline results summary
+The baseline methods demonstrated varying levels of performance in toxicity prediction on the `peptides_func` dataset:
 
-The baseline methods demonstrated varying levels of performance in toxicity prediction:
-
-- **KNN** achieved an overall accuracy of 78%, with a higher recall for non-toxic compounds (class 0) but struggled with toxic compounds (class 1).
+- **KNN** achieved an overall accuracy of 77%, with a higher recall for non-toxic compounds (class 0) but struggled with toxic compounds (class 1).
 - **XGBoost** performed slightly better, achieving an accuracy of 80%, with improved precision and recall for both classes compared to KNN.
 - **LightGBM** achieved an overall accuracy of 81% and slightly better performance across precision, recall, and f1-score.
 - **SVM** achieved an overall accuracy of 81%. It demonstrated high precision (81%) and recall (95%) for non-toxic compounds (class 0), but its performance for toxic compounds (class 1) was less effective, with a recall of 50% and an f1-score of 62%.
+- **Random Forest** achieved an overall accuracy of 79%. It demonstrated high precision (82%) and recall (91%) for non-toxic compounds (class 0), but its performance for toxic compounds (class 1) was less effective, with a recall of 53% and an f1-score of 61%.
 
 These results highlight the potential of classical machine learning algorithms for toxicity prediction, while also indicating room for improvement, particularly in identifying toxic compounds.
 
