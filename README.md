@@ -73,6 +73,6 @@ These issues highlight the importance of reproducibility and transparency in mac
 TODO Szymon
 
 ## GRED
-We were unable to reproduce author's results as version of dependencies provided by them were incompatible with each other, and even after long trials to resolve these conflicts, peptides preprocessing step provided by authors requiered computional resources beyond our grasp.
+We were unable to reproduce author's results as version of dependencies provided by them were incompatible with each other, and even after long trials to resolve these conflicts, peptides preprocessing step provided by authors requiered computional resources, specifically RAM memory, beyond our grasp.
 
 ## the rest stuff
