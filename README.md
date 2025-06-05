@@ -55,7 +55,13 @@ TODO Krzysiu
 
 ## GRIT
 
-TODO Kuba
+The Graph Inductive bias Transformer (GRIT) model achieved the following results on the `peptides_func` dataset:
+
+- **Accuracy**: 91.0%
+- **Average Precision**: 0.59
+- **Area under curve**: 0.88
+
+Overall accuracy is relatively high at 91.0%. The AUC score of 0.88 shows good class separability, although the average precision of 0.59 suggests there is room for improvement in how it ranks relevant instances.
 
 # Failed attepts
 
