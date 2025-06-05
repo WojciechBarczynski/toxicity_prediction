@@ -24,7 +24,8 @@ The baseline methods demonstrated varying levels of performance in toxicity pred
 
 - **KNN** achieved an overall accuracy of 78%, with a higher recall for non-toxic compounds (class 0) but struggled with toxic compounds (class 1).
 - **XGBoost** performed slightly better, achieving an accuracy of 80%, with improved precision and recall for both classes compared to KNN.
-- **LightGBM** delivered the best results among the baseline methods, with an accuracy of 81% and slightly better performance across precision, recall, and f1-score.
+- **LightGBM** achieved an overall accuracy of 81% and slightly better performance across precision, recall, and f1-score.
+- **SVM** achieved an overall accuracy of 81%. It demonstrated high precision (81%) and recall (95%) for non-toxic compounds (class 0), but its performance for toxic compounds (class 1) was less effective, with a recall of 50% and an f1-score of 62%.
 
 These results highlight the potential of classical machine learning algorithms for toxicity prediction, while also indicating room for improvement, particularly in identifying toxic compounds.
 
