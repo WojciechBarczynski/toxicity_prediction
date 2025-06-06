@@ -75,8 +75,13 @@ During our exploration, we attempted to replicate some of the top-performing met
 These issues highlight the importance of reproducibility and transparency in machine learning research, as they directly impact the ability to validate and build upon existing work.
 
 ## Neural Walker
-
-TODO Szymon
+We were unable to reproduce author's results. In [Neural Walker](https://github.com/BorgwardtLab/NeuralWalker) repository authors claim that installation is pretty straight forward. Whole setup process should use three commands
+```
+micromamba env create -f environment.yaml 
+micromamba activate neuralwalker
+pip install -e .
+```
+where we could choose between `micromamba` and `miniconda`. In the first attemp we used `miniconda`, unofortunately it failed during CUDA dependencies inicialization. The second attemp was with `micromamba` but the outcome was same as before. Authors proposed two config files: `enviroment.yaml` and `enviroment_latest.yaml`. Those files differ that `enviroment_latest.yaml` doesn't work at all and `enviroment.yaml` fails during CUDA initialization. 
 
 ## GRED
 We were unable to reproduce author's results as version of dependencies provided by them were incompatible with each other, and even after long trials to resolve these conflicts, peptides preprocessing step provided by authors requiered computional resources, specifically RAM memory, beyond our grasp.
