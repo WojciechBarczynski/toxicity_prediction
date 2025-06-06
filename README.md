@@ -51,7 +51,19 @@ The code for GIN can be found in `gin.ipynb` notebook.
 
 ## GCN+
 
-TODO Krzysiu
+The GCN+ model based on a [2025 ICML paper](https://arxiv.org/pdf/2502.09263) attempts to prove that complicated Graph Transformer Networks are overly complicated for many tasks. Simple GCN networks with additional functionalities can match and on many occasions outperform more complicated models. GCN+ uses these techniques to achieve this performance:
+ - Edge Feature Integration - Augments the message passing algoritm with edge features
+ - Normalization - Applies the GraphNorm algorithm from [this paper](https://arxiv.org/pdf/2009.03294) to improve generalization
+ - Dropout - GCN+ introduces dropout both in the message passing algorithm and the MLP head
+ - Residual Connections - Adds residual connections to fight with vanishing gradients
+ - Positional Encoding - Encodes structural roles into node features
+
+The GCN+ model has the following performance on the `peptides_func` dataset:
+ - **Class 0 (Non-toxic)**: Precision 0.93, Recall 0.99, F1-score 0.96 (2153 samples)
+ - **Class 1 (Toxic)**: Precision 0.76, Recall 0.31, F1-score 0.44 (954 samples)
+ - **Overall**: Accuracy 91%, Macro F1-score 0.70, Weighted F1-score 0.88
+
+GCN+ shows strong performance on the dominant non-toxic class, but, like GIN, continues to struggle with detecting toxic peptides with class 1 recall remaining low at 31%. Despite additional techniques, the class imbalance is a serious issue. One advantage of the GCN+ approach is its inference and training speed. 
 
 ## GRIT
 
