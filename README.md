@@ -39,6 +39,8 @@ These results highlight the potential of classical machine learning algorithms f
 
 ## GIN
 
+The Graph Isomorphism Network (GIN) is a simple yet powerful graph neural network designed to capture graph structure effectively. It is based on the Weisfeiler-Lehman graph isomorphism test.
+
 The Graph Isomorphism Network (GIN) model achieved the following results on the `peptides_func` dataset:
 
 - **Class 0 (Non-toxic)**: Precision 0.76, Recall 0.98, F1-score 0.85 (2153 samples)
@@ -75,7 +77,9 @@ The Graph Inductive bias Transformer (GRIT) model achieved the following results
 
 Overall accuracy is relatively high at 91.0%. The AUC score of 0.88 shows good class separability, although the average precision of 0.59 suggests there is room for improvement in how it ranks relevant instances.
 
-# Failed attepts
+![All Results](assets/all_results.png)
+
+# Obstacles in reproducing results
 
 ## Issues with Top Leaderboard Results
 
@@ -98,4 +102,8 @@ where we could choose between `micromamba` and `miniconda`. In the first attemp 
 ## GRED
 We were unable to reproduce author's results as version of dependencies provided by them were incompatible with each other, and even after long trials to resolve these conflicts, peptides preprocessing step provided by authors requiered computional resources, specifically RAM memory, beyond our grasp.
 
-## the rest stuff
+# Summary
+
+The project explored various methods for toxicity prediction using SMILES representations, comparing classical machine learning algorithms and advanced Graph ML models. Classical algorithms like LightGBM and SVM achieved solid accuracy (~81%) but struggled with class imbalance, particularly in identifying toxic compounds. Graph ML models, including GIN, GCN+, and GRIT, demonstrated improved accuracy and class separability, with GCN+ achieving the highest accuracy (91%) and weighted F1-score (0.88). However, all models faced challenges with low recall for toxic compounds, highlighting the impact of class imbalance.
+
+Reproducibility issues were encountered with some state-of-the-art methods, such as Neural Walker and GRED, due to dependency conflicts, outdated codebases, and excessive computational requirements. These obstacles underscore the importance of reproducibility and transparency in machine learning research.
