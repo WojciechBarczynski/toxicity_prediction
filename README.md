@@ -20,7 +20,7 @@ In this project, we primarily evaluate our models on the `peptides_func` dataset
 
 In our baseline approach, we extract molecular fingerprints from SMILES representations using the `scikit-fingerprints` library. These fingerprints serve as feature vectors that capture the structural properties of the molecules. We then treat the toxicity prediction task as a classical classification problem, applying traditional machine learning algorithms, such as Gradient Boosting (LightGBM and XGBoost), kNN and SVM, to predict toxicity labels based on these features.
 
-Code for the testing of all baseline algorithms can be found in `baseline.ipynb` notebook.
+Code for the testing of all baseline algorithms can be found in the `baseline.ipynb` notebook.
 
 ## Baseline results summary
 The baseline methods demonstrated varying levels of performance in toxicity prediction on the `peptides_func` dataset:
@@ -49,14 +49,14 @@ The Graph Isomorphism Network (GIN) model achieved the following results on the 
 
 GIN excels in identifying non-toxic compounds but struggles with toxic ones, achieving only 29% recall for class 1. This highlights the need for better handling of class imbalance.
 
-The code for GIN can be found in `gin.ipynb` notebook.
+The code for GIN can be found in the  `gin.ipynb` notebook.
 
 ## GCN+
 
 The GCN+ model based on a [2025 ICML paper](https://arxiv.org/pdf/2502.09263) attempts to prove that complicated Graph Transformer Networks are overly complicated for many tasks. Simple GCN networks with additional functionalities can match and on many occasions outperform more complicated models. GCN+ uses these techniques to achieve this performance:
- - Edge Feature Integration - Augments the message passing algoritm with edge features
+ - Edge Feature Integration - Augments the message-passing algorithm with edge features
  - Normalization - Applies the GraphNorm algorithm from [this paper](https://arxiv.org/pdf/2009.03294) to improve generalization
- - Dropout - GCN+ introduces dropout both in the message passing algorithm and the MLP head
+ - Dropout - GCN+ introduces dropout both in the message-passing algorithm and the MLP head
  - Residual Connections - Adds residual connections to fight with vanishing gradients
  - Positional Encoding - Encodes structural roles into node features
 
@@ -66,6 +66,8 @@ The GCN+ model has the following performance on the `peptides_func` dataset:
  - **Overall**: Accuracy 91%, Macro F1-score 0.70, Weighted F1-score 0.88
 
 GCN+ shows strong performance on the dominant non-toxic class, but, like GIN, continues to struggle with detecting toxic peptides with class 1 recall remaining low at 31%. Despite additional techniques, the class imbalance is a serious issue. One advantage of the GCN+ approach is its inference and training speed. 
+
+The code for GCN+ is the same as the authors used and can be found in the authors' repo: https://github.com/LUOyk1999/GNNPlus
 
 ## GRIT
 
@@ -79,6 +81,8 @@ Overall accuracy is relatively high at 91.0%. The AUC score of 0.88 shows good c
 
 ![All Results](assets/all_results.png)
 
+The code for GRIT is the same as the authors used and can be found in the authors' repo: https://github.com/liamma/grit
+
 # Obstacles in reproducing results
 
 ## Issues with Top Leaderboard Results
@@ -91,16 +95,16 @@ During our exploration, we attempted to replicate some of the top-performing met
 These issues highlight the importance of reproducibility and transparency in machine learning research, as they directly impact the ability to validate and build upon existing work.
 
 ## Neural Walker
-We were unable to reproduce author's results. In [Neural Walker](https://github.com/BorgwardtLab/NeuralWalker) repository authors claim that installation is pretty straight forward. Whole setup process should use three commands
+We were unable to reproduce the authors' results. In [Neural Walker](https://github.com/BorgwardtLab/NeuralWalker) repository authors claim that installation is pretty straightforward. The whole setup process should use three commands:
 ```
 micromamba env create -f environment.yaml 
 micromamba activate neuralwalker
 pip install -e .
 ```
-where we could choose between `micromamba` and `miniconda`. In the first attemp we used `miniconda`, unofortunately it failed during CUDA dependencies inicialization. The second attemp was with `micromamba` but the outcome was same as before. Authors proposed two config files: `enviroment.yaml` and `enviroment_latest.yaml`. Those files differ that `enviroment_latest.yaml` doesn't work at all and `enviroment.yaml` fails during CUDA initialization. 
+where we could choose between `micromamba` and `miniconda`. In the first attempt, we used `miniconda`, unfortunately, it failed during CUDA dependencies initialization. The second attempt was with `micromamba` but the outcome was same as before. The authors proposed two config files: `enviroment.yaml` and `enviroment_latest.yaml`. Those files differ in that `enviroment_latest.yaml` doesn't work at all and `enviroment.yaml` fails during CUDA initialization. 
 
 ## GRED
-We were unable to reproduce author's results as version of dependencies provided by them were incompatible with each other, and even after long trials to resolve these conflicts, peptides preprocessing step provided by authors requiered computional resources, specifically RAM memory, beyond our grasp.
+We were unable to reproduce the authors' results as a version of dependencies provided by them were incompatible with each other, and even after long trials to resolve these conflicts, the peptides preprocessing step provided by the authors required computational resources, specifically RAM memory, beyond our grasp.
 
 # Summary
 
