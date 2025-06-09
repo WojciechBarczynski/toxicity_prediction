@@ -67,7 +67,7 @@ The GCN+ model has the following performance on the `peptides_func` dataset:
 
 GCN+ shows strong performance on the dominant non-toxic class, but, like GIN, continues to struggle with detecting toxic peptides with class 1 recall remaining low at 31%. Despite additional techniques, the class imbalance is a serious issue. One advantage of the GCN+ approach is its inference and training speed. 
 
-The code for GCN+ is the same as the authors used and can be found in the authors' repo: https://github.com/LUOyk1999/GNNPlus
+The code for GCN+ is the forked repository of the authors and can be found [here](https://github.com/out-somniac/GNNPlus).
 
 ## GRIT
 
